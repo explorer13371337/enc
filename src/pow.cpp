@@ -236,13 +236,14 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits, const Consensus::Params&
     if (nBits == 0x1e0ffff0) {
 			    LogPrintf("CheckProofOfWork(): first blocks");
 			    LogPrintf("Hashlater: ", hash.ToString());
-	    if (UintToArith256(hash) > bnTarget)
+	    if (UintToArith256(hash) > bnTarget) {
 			    LogPrintf("Hashfirst: ", hash.ToString());
 		}
 	}
 	else {
-    if (UintToArith256(hash) > bnTarget)
+    if (UintToArith256(hash) > bnTarget) {
         return error("CheckProofOfWork(): hash doesn't match nBits");
+	}
 	}
 	
     return true;
