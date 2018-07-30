@@ -42,7 +42,7 @@ class OptionsModel;
 
 class CWallet;
 
-QT_BEENC_NAMESPACE
+QT_BEGIN_NAMESPACE
 class QApplication;
 class QByteArray;
 class QLocalServer;

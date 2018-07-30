@@ -11,7 +11,7 @@
 class OptionsModel;
 class QValidatedLineEdit;
 
-QT_BEENC_NAMESPACE
+QT_BEGIN_NAMESPACE
 class QDataWidgetMapper;
 QT_END_NAMESPACE
 

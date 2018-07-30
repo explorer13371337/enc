@@ -9,7 +9,7 @@
 
 #include <QAbstractListModel>
 
-QT_BEENC_NAMESPACE
+QT_BEGIN_NAMESPACE
 class QNetworkProxy;
 QT_END_NAMESPACE
 

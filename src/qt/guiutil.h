@@ -21,7 +21,7 @@
 class QValidatedLineEdit;
 class SendCoinsRecipient;
 
-QT_BEENC_NAMESPACE
+QT_BEGIN_NAMESPACE
 class QAbstractItemView;
 class QDateTime;
 class QFont;

@@ -21,7 +21,7 @@ class TransactionView;
 class WalletModel;
 class AddressBookPage;
 
-QT_BEENC_NAMESPACE
+QT_BEGIN_NAMESPACE
 class QLabel;
 class QModelIndex;
 class QProgressDialog;

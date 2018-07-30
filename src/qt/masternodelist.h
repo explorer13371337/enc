@@ -21,7 +21,7 @@ namespace Ui {
 class ClientModel;
 class WalletModel;
 
-QT_BEENC_NAMESPACE
+QT_BEGIN_NAMESPACE
 class QModelIndex;
 QT_END_NAMESPACE
 

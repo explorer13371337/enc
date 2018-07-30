@@ -8,7 +8,7 @@
 #include <QMainWindow>
 #include <QObject>
 
-QT_BEENC_NAMESPACE
+QT_BEGIN_NAMESPACE
 class QIcon;
 class QMenu;
 class QWidget;

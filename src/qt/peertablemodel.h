@@ -14,7 +14,7 @@
 class ClientModel;
 class PeerTablePriv;
 
-QT_BEENC_NAMESPACE
+QT_BEGIN_NAMESPACE
 class QTimer;
 QT_END_NAMESPACE
 

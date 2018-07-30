@@ -230,11 +230,16 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits, const Consensus::Params&
     if (fNegative || bnTarget == 0 || fOverflow || bnTarget > UintToArith256(params.powLimit))
         return error("CheckProofOfWork(): nBits below minimum work");
 
+	
+	if(hash.ToString() == "57134dc60f30e23b17990890034a034091774f00e269759852b5069076fe4536") {
+	LogPrintf("BINGO - %s\n", hash.ToString());
+	}
+	
+	
     // Check proof of work matches claimed amount
     if (UintToArith256(hash) > bnTarget)
 	    //LogPrintf("Hashlater: ", hash.ToString());
         //return error("CheckProofOfWork(): hash doesn't match nBits");
-		    LogPrintf("%s\n", hash.ToString());
 	    LogPrintf("CheckProofOfWork(): hash doesn't match nBits");
 
 	

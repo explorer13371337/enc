@@ -33,7 +33,7 @@ class CPubKey;
 class CWallet;
 class uint256;
 
-QT_BEENC_NAMESPACE
+QT_BEGIN_NAMESPACE
 class QTimer;
 QT_END_NAMESPACE
 

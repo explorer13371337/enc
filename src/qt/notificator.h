@@ -12,7 +12,7 @@
 #include <QIcon>
 #include <QObject>
 
-QT_BEENC_NAMESPACE
+QT_BEGIN_NAMESPACE
 class QSystemTrayIcon;
 
 #ifdef USE_DBUS

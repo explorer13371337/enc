@@ -8,7 +8,7 @@
 #include <QList>
 #include <QObject>
 
-QT_BEENC_NAMESPACE
+QT_BEGIN_NAMESPACE
 class QAbstractItemModel;
 QT_END_NAMESPACE
 

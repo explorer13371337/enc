@@ -22,7 +22,7 @@ namespace Ui {
     class SendCoinsDialog;
 }
 
-QT_BEENC_NAMESPACE
+QT_BEGIN_NAMESPACE
 class QUrl;
 QT_END_NAMESPACE
 

@@ -17,7 +17,7 @@ namespace Ui {
     class ReceiveRequestDialog;
 }
 
-QT_BEENC_NAMESPACE
+QT_BEGIN_NAMESPACE
 class QMenu;
 QT_END_NAMESPACE
 

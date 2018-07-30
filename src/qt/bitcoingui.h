@@ -35,7 +35,7 @@ class MasternodeList;
 
 class CWallet;
 
-QT_BEENC_NAMESPACE
+QT_BEGIN_NAMESPACE
 class QAction;
 class QProgressBar;
 class QProgressDialog;

@@ -15,7 +15,7 @@ namespace Ui {
     class AddressBookPage;
 }
 
-QT_BEENC_NAMESPACE
+QT_BEGIN_NAMESPACE
 class QItemSelection;
 class QMenu;
 class QModelIndex;

@@ -14,7 +14,7 @@ class PlatformStyle;
 class TransactionFilterProxy;
 class WalletModel;
 
-QT_BEENC_NAMESPACE
+QT_BEGIN_NAMESPACE
 class QComboBox;
 class QDateTimeEdit;
 class QFrame;
