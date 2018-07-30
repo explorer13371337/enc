@@ -1234,7 +1234,7 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
     CAmount nSubsidy = 20 * COIN;
 
     if (nPrevHeight == 0) {
-        nSubsidy = 420480 * COIN; //premine
+        nSubsidy = 777777 * COIN; //premine
     }
 
     // yearly decline of production by 50% per year, projected ~10M coins max by year 2040+.
@@ -1261,10 +1261,10 @@ bool IsInitialBlockDownload()
     const CChainParams& chainParams = Params();
     if (chainActive.Tip() == NULL)
         return true;
-    if (chainActive.Tip()->nChainWork < UintToArith256(chainParams.GetConsensus().nMinimumChainWork))
-        return true;
-    if (chainActive.Tip()->GetBlockTime() < (GetTime() - chainParams.MaxTipAge()))
-        return true;
+    //if (chainActive.Tip()->nChainWork < UintToArith256(chainParams.GetConsensus().nMinimumChainWork))
+        //return true;
+    //if (chainActive.Tip()->GetBlockTime() < (GetTime() - chainParams.MaxTipAge()))
+        //return true;
     lockIBDState = true;
     return false;
 }

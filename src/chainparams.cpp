@@ -29,9 +29,9 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
     txNew.vout[0].scriptPubKey = genesisOutputScript;
 
     CBlock genesis;
-    genesis.nTime    = nTime;
-    genesis.nBits    = nBits;
-    genesis.nNonce   = nNonce;
+    genesis.nTime = nTime;
+    genesis.nBits = nBits;
+    genesis.nNonce = nNonce;
     genesis.nVersion = nVersion;
     genesis.vtx.push_back(txNew);
     genesis.hashPrevBlock.SetNull();
@@ -91,7 +91,7 @@ public:
         consensus.nMajorityRejectBlockOutdated = 950;
         consensus.nMajorityWindow = 1000;
         consensus.BIP34Height = 0;
-        consensus.BIP34Hash = uint256S("0"); //same as genesis hash
+        consensus.BIP34Hash = uint256S("57134dc60f30e23b17990890034a034091774f00e269759852b5069076fe4536"); //same as genesis hash
         consensus.powLimit = uint256S("00000fffff000000000000000000000000000000000000000000000000000000");
         consensus.nPowTargetTimespan = 24 * 60 * 60; // Easynodecoin: 1 day // used only for KGW and Bitcoin Diff
         consensus.nPowTargetSpacing = 2.5 * 60; // Easynodecoin: 2.5 minutes // soft change to nPowApr2018TargetSpacing after mPowDGWReconfigureApr2018Height
@@ -121,11 +121,14 @@ public:
         consensus.mPowDGWReconfigureApr2018Height = 23750;
         consensus.nPowApr2018TargetSpacing = 2 * 60;
 
-        // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000047a222baa2d1fe");
+		
+		
+		
+       // The best chain should have at least this much work.
+        consensus.nMinimumChainWork = uint256S("0x00");
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x00000000000a106c24554e369cdacdb683fd6daef276ca38b1991ad82e74dc63");
+        consensus.defaultAssumeValid = uint256S("0x00");
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -142,24 +145,26 @@ public:
         nDelayGetHeadersTime = 24 * 60 * 60;
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1532871140, 13140, 0x1e0ffff0, 1, 20 * COIN);
+        genesis = CreateGenesisBlock(1532871140, 1259517, 0x1e0ffff0, 1, 20 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
 		
-		
-		
-        assert(consensus.hashGenesisBlock == uint256S(""));
-        assert(genesis.hashMerkleRoot == uint256S(""));
+		//LogPrintf("Display genesis thash so we can input it below %s\n", consensus.hashGenesisBlock.ToString().c_str());
+        //LogPrintf("Display tmerkleroot hash so we can input it below %s\n", genesis.hashMerkleRoot.ToString().c_str());
+		//00000bda8cbbdfaea37bdaef7b33c54eda376f901402988cb9b34dc14b9d3db5
+	
+		assert(consensus.hashGenesisBlock == uint256S("57134dc60f30e23b17990890034a034091774f00e269759852b5069076fe4536"));
+        assert(genesis.hashMerkleRoot == uint256S("d47242c8a262932e5917854027aa21ce2e6096855bfc1564973318ce786b4be3"));
 
         vSeeds.push_back(CDNSSeedData("easynodecoin.io", "seed1.easynodecoin.io"));
         vSeeds.push_back(CDNSSeedData("seed2.easynodecoin.io", "seed2.easynodecoin.io"));
         vSeeds.push_back(CDNSSeedData("seed3.easynodecoin.io", "seed3.easynodecoin.io"));
 
         // Easynodecoin addresses start with 'G'
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,38);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,102);
         // Easynodecoin script addresses start with '5'
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,10);
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,103);
         // Easynodecoin private keys start with '5' or 'G'
-        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,198);
+        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,177);
         // Easynodecoin BIP32 pubkeys start with 'xpub' (Bitcoin defaults)
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
         // Easynodecoin BIP32 prvkeys start with 'xprv' (Bitcoin defaults)
@@ -185,9 +190,9 @@ public:
                     (  0, consensus.hashGenesisBlock)
             ,
             1532871140, // * UNIX timestamp of last checkpoint block
-            1,    // * total number of transactions between genesis and last checkpoint
+            0,    // * total number of transactions between genesis and last checkpoint
             //   (the tx=... number in the SetBestChain debug.log lines)
-            5000        // * estimated number of transactions per day after checkpoint
+            500        // * estimated number of transactions per day after checkpoint
         };
     }
 };
@@ -218,7 +223,7 @@ public:
         consensus.nMajorityRejectBlockOutdated = 75;
         consensus.nMajorityWindow = 100;
         consensus.BIP34Height = 0;
-        consensus.BIP34Hash = uint256S("0x0000070936337da4fa971d46112401d17a7288b57bde0e45fba010b94b2577a9");
+        consensus.BIP34Hash = uint256S("52b46cb65138a7ff37f271ff47a6a50c73905fd162e2700ae94b5406f0621a08");
         consensus.powLimit = uint256S("00000fffff000000000000000000000000000000000000000000000000000000");
         consensus.nPowTargetTimespan = 24 * 60 * 60; // Easynodecoin: 1 day // used only for KGW and Bitcoin Diff
         consensus.nPowTargetSpacing = 2 * 60; // Easynodecoin: 2 minutes
@@ -258,22 +263,26 @@ public:
         pchMessageStart[1] = 0xe2;
         pchMessageStart[2] = 0xca;
         pchMessageStart[3] = 0xff;
-        vAlertPubKey = ParseHex("044f1443283e594f9a087e02aeceef6c2cac0d651f65c82cea13b929240a73f380e708f5922225ae4551749a7db28c742758f44877fd4ba527789481f3733d61b1");
-        nDefaultPort = 12111;
+        vAlertPubKey = ParseHex("045509923a8918e713de8071420c55a477c759ee2a5fff4c8589d49d6554aaa0b336c41c4a48af4d72f43c9b8c2ec8caa2306dba2f921abd1f9dbb4673a7f2be3c");
+        nDefaultPort = 18111;
         nMaxTipAge = 0x7fffffff; // allow mining on top of old blocks for testnet
         nDelayGetHeadersTime = 24 * 60 * 60;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1519336394, 1105519, 0x1e0ffff0, 1, 20 * COIN);
+        genesis = CreateGenesisBlock(1532871140, 1105519, 0x1e0ffff0, 1, 20 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
 
-        assert(consensus.hashGenesisBlock == uint256S("0x00000ac0100fe889e7130e47d13819cc91eba5646dc1e8fc050c7a67532565ed"));
-        assert(genesis.hashMerkleRoot == uint256S("0x151883cb75e167308cfe2480d991e4d2c634f74499a5695b61afb3b19f070a5e"));
+
+		//LogPrintf("Display genesis2 thash so we can input it below %s\n", consensus.hashGenesisBlock.ToString().c_str());
+        //LogPrintf("Display tmerkleroot2 hash so we can input it below %s\n", genesis.hashMerkleRoot.ToString().c_str());
+		
+        assert(consensus.hashGenesisBlock == uint256S("52b46cb65138a7ff37f271ff47a6a50c73905fd162e2700ae94b5406f0621a08"));
+        assert(genesis.hashMerkleRoot == uint256S("d47242c8a262932e5917854027aa21ce2e6096855bfc1564973318ce786b4be3"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
-        vSeeds.push_back(CDNSSeedData("test.easynodecoin.io", "test-s1.easynodecoin.io"));
-        vSeeds.push_back(CDNSSeedData("test.easynodecoin.io", "test-s2.easynodecoin.io"));
+        vSeeds.push_back(CDNSSeedData("test.easynodecoin.io", "test-seed1.easynodecoin.io"));
+        vSeeds.push_back(CDNSSeedData("test.easynodecoin.io", "test-seed2.easynodecoin.io"));
 
         // Testnet Easynodecoin addresses start with 'y'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,140);
@@ -299,13 +308,13 @@ public:
 
         nPoolMaxTransactions = 3;
         nFulfilledRequestExpireTime = 5*60; // fulfilled requests expire in 5 minutes
-        strSporkPubKey = "04646afcac0a7c8558a3d941bcf93422109972c17e836c4791884bbc44cd6ed2318885dc5398a8123c6a9d35294b45a51c46f1fb8a69f7b13ed3a2d82dd7fd3fe4";
+        strSporkPubKey = "042d24805d145c40c8131c309b51400fa09c19057a7251c7ef570c8b1bc9f42cba2ef646d4b79efebd8e96f44e95020b8b5e5c2b1424506c051404084686459c9c";
 
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
                     (  0, consensus.hashGenesisBlock),
 
-            1519336394, // * UNIX timestamp of last checkpoint block
+            1532871140, // * UNIX timestamp of last checkpoint block
             0,       // * total number of transactions between genesis and last checkpoint
                         //   (the tx=... number in the SetBestChain debug.log lines)
             500         // * estimated number of transactions per day after checkpoint
@@ -379,11 +388,14 @@ public:
         nDefaultPort = 19111;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1519336473, 0, 0x207fffff, 1, 20 * COIN);
+        genesis = CreateGenesisBlock(1532871140, 0, 0x207fffff, 1, 20 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        
-        assert(consensus.hashGenesisBlock == uint256S("0x5f8058aea61edae50983271d61c69161ca1ee90a556127aba1b18f414e3293b7"));
-        assert(genesis.hashMerkleRoot == uint256S("0x151883cb75e167308cfe2480d991e4d2c634f74499a5695b61afb3b19f070a5e"));
+
+		//LogPrintf("Display genesis3 thash so we can input it below %s\n", consensus.hashGenesisBlock.ToString().c_str());
+        //LogPrintf("Display tmerkleroot3 hash so we can input it below %s\n", genesis.hashMerkleRoot.ToString().c_str());
+		
+        assert(consensus.hashGenesisBlock == uint256S("b20b84323625f11ef6ed647fa291f5573e98878fffe230c6205b5c6d02ed37fa"));
+        assert(genesis.hashMerkleRoot == uint256S("d47242c8a262932e5917854027aa21ce2e6096855bfc1564973318ce786b4be3"));
 
         vFixedSeeds.clear(); //! Regtest mode doesn't have any fixed seeds.
         vSeeds.clear();  //! Regtest mode doesn't have any DNS seeds.

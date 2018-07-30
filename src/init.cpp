@@ -1003,7 +1003,7 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
     sigemptyset(&sa.sa_mask);
     sa.sa_flags = 0;
     sigaction(SIGTERM, &sa, NULL);
-    sigaction(SIENCT, &sa, NULL);
+    sigaction(SIGINT, &sa, NULL);
 
     // Reopen debug.log on SIGHUP
     struct sigaction sa_hup;
