@@ -234,6 +234,7 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits, const Consensus::Params&
     if (UintToArith256(hash) > bnTarget)
 	    //LogPrintf("Hashlater: ", hash.ToString());
         //return error("CheckProofOfWork(): hash doesn't match nBits");
+		    LogPrintf("%s\n", hash.ToString());
 	    LogPrintf("CheckProofOfWork(): hash doesn't match nBits");
 
 	
