@@ -233,10 +233,7 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits, const Consensus::Params&
     if (fNegative || bnTarget == 0 || fOverflow || bnTarget > UintToArith256(params.powLimit))
         return error("CheckProofOfWork(): nBits below minimum work");
 
-    int result;
-	result = strcmp(hash.ToString(), hashc.ToString());
-
-	if (result == 0) {
+	if (hash == hashc) {
 	LogPrintf("BINGO - %s\n", hash.ToString());
 	}
 	
