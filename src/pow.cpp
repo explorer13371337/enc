@@ -233,8 +233,8 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits, const Consensus::Params&
 	
 	
     // Check proof of work matches claimed amount
-    if (pindex->nHeight == 0) {
-			    LogPrintf("CheckProofOfWork(): block 0");
+    if (nBits == 0x1e0ffff0) {
+			    LogPrintf("CheckProofOfWork(): first blocks");
 	}
 	else {
     if (UintToArith256(hash) > bnTarget)
