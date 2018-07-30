@@ -55,7 +55,7 @@ BOOST_AUTO_TEST_CASE(siphash)
     BOOST_CHECK_EQUAL(hasher.Finalize(),  0x93f5f5799a932462ull);
     hasher.Write(0x0F0E0D0C0B0A0908ULL);
     BOOST_CHECK_EQUAL(hasher.Finalize(),  0x3f2acc7f57c29bdbull);
-    hasher.Write(0x1716151413121110ULL);
+    hasher.Write(0x1716151413181110ULL);
     BOOST_CHECK_EQUAL(hasher.Finalize(),  0xb8ad50c6f649af94ull);
     hasher.Write(0x1F1E1D1C1B1A1918ULL);
     BOOST_CHECK_EQUAL(hasher.Finalize(),  0x7127512f72f27cceull);
@@ -64,7 +64,7 @@ BOOST_AUTO_TEST_CASE(siphash)
     hasher.Write(0x2F2E2D2C2B2A2928ULL);
     BOOST_CHECK_EQUAL(hasher.Finalize(),  0xe612a3cb9ecba951ull);
 
-    BOOST_CHECK_EQUAL(SipHashUint256(0x0706050403020100ULL, 0x0F0E0D0C0B0A0908ULL, uint256S("1f1e1d1c1b1a191817161514131211100f0e0d0c0b0a09080706050403020100")), 0x7127512f72f27cceull);
+    BOOST_CHECK_EQUAL(SipHashUint256(0x0706050403020100ULL, 0x0F0E0D0C0B0A0908ULL, uint256S("1f1e1d1c1b1a191817161514131811100f0e0d0c0b0a09080706050403020100")), 0x7127512f72f27cceull);
 
     // Check consistency between CSipHasher and SipHashUint256[Extra].
     // TODO reenable when backporting Bitcoin #10321

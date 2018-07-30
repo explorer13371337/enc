@@ -53,7 +53,7 @@ config file):
 
 	HiddenServiceDir /var/lib/tor/easynodecoincore-service/
 	HiddenServicePort 17111 127.0.0.1:17111
-	HiddenServicePort 12111 127.0.0.1:12111
+	HiddenServicePort 18111 127.0.0.1:18111
 
 The directory can be different of course, but (both) port numbers should be equal to
 your easynodecoind's P2P listen port (17111 by default).
