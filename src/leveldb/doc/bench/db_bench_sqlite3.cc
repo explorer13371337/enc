@@ -500,7 +500,7 @@ class Benchmark {
 
     sqlite3_stmt *replace_stmt, *begin_trans_stmt, *end_trans_stmt;
     std::string replace_str = "REPLACE INTO test (key, value) VALUES (?, ?)";
-    std::string begin_trans_str = "BEENC TRANSACTION;";
+    std::string begin_trans_str = "BEGIN TRANSACTION;";
     std::string end_trans_str = "END TRANSACTION;";
 
     // Check for synchronous flag in options
@@ -583,7 +583,7 @@ class Benchmark {
     sqlite3_stmt *read_stmt, *begin_trans_stmt, *end_trans_stmt;
 
     std::string read_str = "SELECT * FROM test WHERE key = ?";
-    std::string begin_trans_str = "BEENC TRANSACTION;";
+    std::string begin_trans_str = "BEGIN TRANSACTION;";
     std::string end_trans_str = "END TRANSACTION;";
 
     // Preparing sqlite3 statements

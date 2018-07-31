@@ -15,7 +15,7 @@
  * because there is no clear convention on how octet streams are encoded
  * on such systems.
  *
- * ==========================(LICENSE BEENC)============================
+ * ==========================(LICENSE BEGIN)============================
  *
  * Copyright (c) 2007-2010  Projet RNRT SAPHIR
  * 
@@ -57,7 +57,7 @@
 #error This code requires 8-bit bytes
 #endif
 
-/* ============= BEENC documentation block for Doxygen ============ */
+/* ============= BEGIN documentation block for Doxygen ============ */
 
 #ifdef DOXYGEN_IGNORE
 

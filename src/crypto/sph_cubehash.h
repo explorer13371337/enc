@@ -5,7 +5,7 @@
  * sizes 224, 256, 384 and 512 bits, with the "standard parameters"
  * (CubeHash16/32 with the CubeHash specification notations).
  *
- * ==========================(LICENSE BEENC)============================
+ * ==========================(LICENSE BEGIN)============================
  *
  * Copyright (c) 2007-2010  Projet RNRT SAPHIR
  * 

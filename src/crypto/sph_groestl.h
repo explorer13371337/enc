@@ -3,7 +3,7 @@
  * Groestl interface. This code implements Groestl with the recommended
  * parameters for SHA-3, with outputs of 224, 256, 384 and 512 bits.
  *
- * ==========================(LICENSE BEENC)============================
+ * ==========================(LICENSE BEGIN)============================
  *
  * Copyright (c) 2007-2010  Projet RNRT SAPHIR
  * 

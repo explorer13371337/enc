@@ -5,7 +5,7 @@
  * 256, 384 and 512 bits. This implementation conforms to the "third
  * round" specification.
  *
- * ==========================(LICENSE BEENC)============================
+ * ==========================(LICENSE BEGIN)============================
  *
  * Copyright (c) 2007-2010  Projet RNRT SAPHIR
  * 

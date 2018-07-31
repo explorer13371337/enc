@@ -21,7 +21,7 @@ uint256 CBlockHeader::GetHash() const
     if (nTime <= LYRA2Z_TIMESTAMP) {
         neoscrypt((unsigned char *) &nVersion, (unsigned char *) &thash, profile);
     } else {
-        lyra2z_hash(BEENC(nVersion), BEENC(thash));
+        lyra2z_hash(BEGIN(nVersion), BEGIN(thash));
     }
 
     return thash;

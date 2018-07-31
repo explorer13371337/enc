@@ -13,11 +13,11 @@ FILEVERSION     VER_FILEVERSION
 PRODUCTVERSION  VER_PRODUCTVERSION
 FILEOS          VOS_NT_WINDOWS32
 FILETYPE        VFT_APP
-BEENC
+BEGIN
     BLOCK "StringFileInfo"
-    BEENC
+    BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
-        BEENC
+        BEGIN
             VALUE "CompanyName",        "Easynodecoin"
             VALUE "FileDescription",    "Easynodecoin Core (GUI node for Easynodecoin)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
@@ -31,7 +31,7 @@ BEENC
     END
 
     BLOCK "VarFileInfo"
-    BEENC
+    BEGIN
         VALUE "Translation", 0x0, 1252 // language neutral - multilingual (decimal)
     END
 END

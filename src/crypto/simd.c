@@ -2,7 +2,7 @@
 /*
  * SIMD implementation.
  *
- * ==========================(LICENSE BEENC)============================
+ * ==========================(LICENSE BEGIN)============================
  *
  * Copyright (c) 2007-2010  Projet RNRT SAPHIR
  * 

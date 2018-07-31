@@ -6,7 +6,7 @@
  * the "-3" suffix), thus "SHAvite-224" is "SHAvite-3 with a 224-bit
  * output".
  *
- * ==========================(LICENSE BEENC)============================
+ * ==========================(LICENSE BEGIN)============================
  *
  * Copyright (c) 2007-2010  Projet RNRT SAPHIR
  * 

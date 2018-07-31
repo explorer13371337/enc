@@ -15,7 +15,7 @@
  * possible to have both simultaneously, by including this file twice
  * (with and without the AES_BIG_ENDIAN macro).
  *
- * ==========================(LICENSE BEENC)============================
+ * ==========================(LICENSE BEGIN)============================
  *
  * Copyright (c) 2007-2010  Projet RNRT SAPHIR
  * 

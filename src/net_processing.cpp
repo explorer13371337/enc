@@ -764,7 +764,7 @@ static void RelayAddress(const CAddress& addr, bool fReachable, CConnman& connma
         hashSalt = GetRandHash();
     uint64_t hashAddr = addr.GetHash();
     uint256 hashRand = ArithToUint256(UintToArith256(hashSalt) ^ (hashAddr<<32) ^ ((GetTime()+hashAddr)/(24*60*60)));
-    hashRand = Hash(BEENC(hashRand), END(hashRand));
+    hashRand = Hash(BEGIN(hashRand), END(hashRand));
     std::multimap<uint256, CNode*> mapMix;
 
     auto sortfunc = [&mapMix, &hashRand](CNode* pnode) {
@@ -772,7 +772,7 @@ static void RelayAddress(const CAddress& addr, bool fReachable, CConnman& connma
             unsigned int nPointer;
             memcpy(&nPointer, &pnode, sizeof(nPointer));
             uint256 hashKey = ArithToUint256(UintToArith256(hashRand) ^ nPointer);
-            hashKey = Hash(BEENC(hashKey), END(hashKey));
+            hashKey = Hash(BEGIN(hashKey), END(hashKey));
             mapMix.emplace(hashKey, pnode);
         }
     };
@@ -2573,7 +2573,7 @@ bool SendMessages(CNode* pto, CConnman& connman, std::atomic<bool>& interruptMsg
                     if (hashSalt.IsNull())
                         hashSalt = GetRandHash();
                     uint256 hashRand = ArithToUint256(UintToArith256(inv.hash) ^ UintToArith256(hashSalt));
-                    hashRand = Hash(BEENC(hashRand), END(hashRand));
+                    hashRand = Hash(BEGIN(hashRand), END(hashRand));
                     bool fTrickleWait = ((UintToArith256(hashRand) & 3) != 0);
 
                     if (fTrickleWait)

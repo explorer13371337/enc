@@ -4,7 +4,7 @@
  * functions which differ by their output size; this implementation
  * defines BMW for output sizes 224, 256, 384 and 512 bits.
  *
- * ==========================(LICENSE BEENC)============================
+ * ==========================(LICENSE BEGIN)============================
  *
  * Copyright (c) 2007-2010  Projet RNRT SAPHIR
  * 

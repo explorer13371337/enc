@@ -13,9 +13,9 @@
 #include <string>
 #include <vector>
 
-#define BEENC(a)            ((char*)&(a))
+#define BEGIN(a)            ((char*)&(a))
 #define END(a)              ((char*)&((&(a))[1]))
-#define UBEENC(a)           ((unsigned char*)&(a))
+#define UBEGIN(a)           ((unsigned char*)&(a))
 #define UEND(a)             ((unsigned char*)&((&(a))[1]))
 #define ARRAYLEN(array)     (sizeof(array)/sizeof((array)[0]))
 
