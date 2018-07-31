@@ -23,12 +23,12 @@
 
 #include <openssl/ssl.h>
 
-#if defined(QT_STATICPLUENC) && QT_VERSION < 0x050000
+#if defined(QT_STATICPLUGIN) && QT_VERSION < 0x050000
 #include <QtPlugin>
-Q_IMPORT_PLUENC(qcncodecs)
-Q_IMPORT_PLUENC(qjpcodecs)
-Q_IMPORT_PLUENC(qtwcodecs)
-Q_IMPORT_PLUENC(qkrcodecs)
+Q_IMPORT_PLUGIN(qcncodecs)
+Q_IMPORT_PLUGIN(qjpcodecs)
+Q_IMPORT_PLUGIN(qtwcodecs)
+Q_IMPORT_PLUGIN(qkrcodecs)
 #endif
 
 // This is all you need to run all the tests

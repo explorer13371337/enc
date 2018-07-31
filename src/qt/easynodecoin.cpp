@@ -56,24 +56,24 @@
 #include <QTranslator>
 #include <QSslConfiguration>
 
-#if defined(QT_STATICPLUENC)
+#if defined(QT_STATICPLUGIN)
 #include <QtPlugin>
 #if QT_VERSION < 0x050000
-Q_IMPORT_PLUENC(qcncodecs)
-Q_IMPORT_PLUENC(qjpcodecs)
-Q_IMPORT_PLUENC(qtwcodecs)
-Q_IMPORT_PLUENC(qkrcodecs)
-Q_IMPORT_PLUENC(qtaccessiblewidgets)
+Q_IMPORT_PLUGIN(qcncodecs)
+Q_IMPORT_PLUGIN(qjpcodecs)
+Q_IMPORT_PLUGIN(qtwcodecs)
+Q_IMPORT_PLUGIN(qkrcodecs)
+Q_IMPORT_PLUGIN(qtaccessiblewidgets)
 #else
 #if QT_VERSION < 0x050400
-Q_IMPORT_PLUENC(AccessibleFactory)
+Q_IMPORT_PLUGIN(AccessibleFactory)
 #endif
 #if defined(QT_QPA_PLATFORM_XCB)
-Q_IMPORT_PLUENC(QXcbIntegrationPlugin);
+Q_IMPORT_PLUGIN(QXcbIntegrationPlugin);
 #elif defined(QT_QPA_PLATFORM_WINDOWS)
-Q_IMPORT_PLUENC(QWindowsIntegrationPlugin);
+Q_IMPORT_PLUGIN(QWindowsIntegrationPlugin);
 #elif defined(QT_QPA_PLATFORM_COCOA)
-Q_IMPORT_PLUENC(QCocoaIntegrationPlugin);
+Q_IMPORT_PLUGIN(QCocoaIntegrationPlugin);
 #endif
 #endif
 #endif

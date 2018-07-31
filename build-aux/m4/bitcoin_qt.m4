@@ -62,8 +62,8 @@ AC_DEFUN([BITCOIN_QT_INIT],[
 
   AC_ARG_WITH([qt-incdir],[AS_HELP_STRING([--with-qt-incdir=INC_DIR],[specify qt include path (overridden by pkgconfig)])], [qt_include_path=$withval], [])
   AC_ARG_WITH([qt-libdir],[AS_HELP_STRING([--with-qt-libdir=LIB_DIR],[specify qt lib path (overridden by pkgconfig)])], [qt_lib_path=$withval], [])
-  AC_ARG_WITH([qt-plugindir],[AS_HELP_STRING([--with-qt-plugindir=PLUENC_DIR],[specify qt plugin path (overridden by pkgconfig)])], [qt_plugin_path=$withval], [])
-  AC_ARG_WITH([qt-translationdir],[AS_HELP_STRING([--with-qt-translationdir=PLUENC_DIR],[specify qt translation path (overridden by pkgconfig)])], [qt_translation_path=$withval], [])
+  AC_ARG_WITH([qt-plugindir],[AS_HELP_STRING([--with-qt-plugindir=PLUGIN_DIR],[specify qt plugin path (overridden by pkgconfig)])], [qt_plugin_path=$withval], [])
+  AC_ARG_WITH([qt-translationdir],[AS_HELP_STRING([--with-qt-translationdir=PLUGIN_DIR],[specify qt translation path (overridden by pkgconfig)])], [qt_translation_path=$withval], [])
   AC_ARG_WITH([qt-bindir],[AS_HELP_STRING([--with-qt-bindir=BIN_DIR],[specify qt bin path])], [qt_bin_path=$withval], [])
 
   AC_ARG_WITH([qtdbus],
@@ -102,7 +102,7 @@ AC_DEFUN([BITCOIN_QT_CONFIGURE],[
   dnl Qt4 and Qt5. With Qt5, languages moved into core and the WindowsIntegration
   dnl plugin was added. Since we can't tell if Qt4 is static or not, it is
   dnl assumed for windows builds.
-  dnl _BITCOIN_QT_CHECK_STATIC_PLUENCS does a quick link-check and appends the
+  dnl _BITCOIN_QT_CHECK_STATIC_PLUGINS does a quick link-check and appends the
   dnl results to QT_LIBS.
   BITCOIN_QT_CHECK([
   TEMP_CPPFLAGS=$CPPFLAGS
@@ -112,8 +112,8 @@ AC_DEFUN([BITCOIN_QT_CONFIGURE],[
   if test x$bitcoin_qt_got_major_vers = x5; then
     _BITCOIN_QT_IS_STATIC
     if test x$bitcoin_cv_static_qt = xyes; then
-      _BITCOIN_QT_FIND_STATIC_PLUENCS
-      AC_DEFINE(QT_STATICPLUENC, 1, [Define this symbol if qt plugins are static])
+      _BITCOIN_QT_FIND_STATIC_PLUGINS
+      AC_DEFINE(QT_STATICPLUGIN, 1, [Define this symbol if qt plugins are static])
       AC_CACHE_CHECK(for Qt < 5.4, bitcoin_cv_need_acc_widget,[AC_COMPILE_IFELSE([AC_LANG_PROGRAM(
           [[#include <QtCore>]],[[
           #if QT_VERSION >= 0x050400
@@ -124,29 +124,29 @@ AC_DEFUN([BITCOIN_QT_CONFIGURE],[
         [bitcoin_cv_need_acc_widget=no])
       ])
       if test "x$bitcoin_cv_need_acc_widget" = "xyes"; then
-        _BITCOIN_QT_CHECK_STATIC_PLUENCS([Q_IMPORT_PLUENC(AccessibleFactory)], [-lqtaccessiblewidgets])
+        _BITCOIN_QT_CHECK_STATIC_PLUGINS([Q_IMPORT_PLUGIN(AccessibleFactory)], [-lqtaccessiblewidgets])
       fi
       if test x$TARGET_OS = xwindows; then
-        _BITCOIN_QT_CHECK_STATIC_PLUENCS([Q_IMPORT_PLUENC(QWindowsIntegrationPlugin)],[-lqwindows])
+        _BITCOIN_QT_CHECK_STATIC_PLUGINS([Q_IMPORT_PLUGIN(QWindowsIntegrationPlugin)],[-lqwindows])
         AC_DEFINE(QT_QPA_PLATFORM_WINDOWS, 1, [Define this symbol if the qt platform is windows])
       elif test x$TARGET_OS = xlinux; then
-        _BITCOIN_QT_CHECK_STATIC_PLUENCS([Q_IMPORT_PLUENC(QXcbIntegrationPlugin)],[-lqxcb -lxcb-static])
+        _BITCOIN_QT_CHECK_STATIC_PLUGINS([Q_IMPORT_PLUGIN(QXcbIntegrationPlugin)],[-lqxcb -lxcb-static])
         AC_DEFINE(QT_QPA_PLATFORM_XCB, 1, [Define this symbol if the qt platform is xcb])
       elif test x$TARGET_OS = xdarwin; then
         AX_CHECK_LINK_FLAG([[-framework IOKit]],[QT_LIBS="$QT_LIBS -framework IOKit"],[AC_MSG_ERROR(could not iokit framework)])
-        _BITCOIN_QT_CHECK_STATIC_PLUENCS([Q_IMPORT_PLUENC(QCocoaIntegrationPlugin)],[-lqcocoa])
+        _BITCOIN_QT_CHECK_STATIC_PLUGINS([Q_IMPORT_PLUGIN(QCocoaIntegrationPlugin)],[-lqcocoa])
         AC_DEFINE(QT_QPA_PLATFORM_COCOA, 1, [Define this symbol if the qt platform is cocoa])
       fi
     fi
   else
     if test x$TARGET_OS = xwindows; then
-      AC_DEFINE(QT_STATICPLUENC, 1, [Define this symbol if qt plugins are static])
-      _BITCOIN_QT_CHECK_STATIC_PLUENCS([
-         Q_IMPORT_PLUENC(qcncodecs)
-         Q_IMPORT_PLUENC(qjpcodecs)
-         Q_IMPORT_PLUENC(qtwcodecs)
-         Q_IMPORT_PLUENC(qkrcodecs)
-         Q_IMPORT_PLUENC(AccessibleFactory)],
+      AC_DEFINE(QT_STATICPLUGIN, 1, [Define this symbol if qt plugins are static])
+      _BITCOIN_QT_CHECK_STATIC_PLUGINS([
+         Q_IMPORT_PLUGIN(qcncodecs)
+         Q_IMPORT_PLUGIN(qjpcodecs)
+         Q_IMPORT_PLUGIN(qtwcodecs)
+         Q_IMPORT_PLUGIN(qkrcodecs)
+         Q_IMPORT_PLUGIN(AccessibleFactory)],
          [-lqcncodecs -lqjpcodecs -lqtwcodecs -lqkrcodecs -lqtaccessiblewidgets])
     fi
   fi
@@ -295,7 +295,7 @@ dnl Internal. Check if the linked version of Qt was built as static libs.
 dnl Requires: Qt5. This check cannot determine if Qt4 is static.
 dnl Requires: INCLUDES and LIBS must be populated as necessary.
 dnl Output: bitcoin_cv_static_qt=yes|no
-dnl Output: Defines QT_STATICPLUENC if plugins are static.
+dnl Output: Defines QT_STATICPLUGIN if plugins are static.
 AC_DEFUN([_BITCOIN_QT_IS_STATIC],[
   AC_CACHE_CHECK(for static Qt, bitcoin_cv_static_qt,[
   AC_COMPILE_IFELSE([AC_LANG_PROGRAM(
@@ -311,34 +311,34 @@ AC_DEFUN([_BITCOIN_QT_IS_STATIC],[
     [bitcoin_cv_static_qt=no])
   ])
   if test xbitcoin_cv_static_qt = xyes; then
-    AC_DEFINE(QT_STATICPLUENC, 1, [Define this symbol for static Qt plugins])
+    AC_DEFINE(QT_STATICPLUGIN, 1, [Define this symbol for static Qt plugins])
   fi
 ])
 
 dnl Internal. Check if the link-requirements for static plugins are met.
 dnl Requires: INCLUDES and LIBS must be populated as necessary.
-dnl Inputs: $1: A series of Q_IMPORT_PLUENC().
+dnl Inputs: $1: A series of Q_IMPORT_PLUGIN().
 dnl Inputs: $2: The libraries that resolve $1.
 dnl Output: QT_LIBS is prepended or configure exits.
-AC_DEFUN([_BITCOIN_QT_CHECK_STATIC_PLUENCS],[
+AC_DEFUN([_BITCOIN_QT_CHECK_STATIC_PLUGINS],[
   AC_MSG_CHECKING(for static Qt plugins: $2)
-  CHECK_STATIC_PLUENCS_TEMP_LIBS="$LIBS"
+  CHECK_STATIC_PLUGINS_TEMP_LIBS="$LIBS"
   LIBS="$2 $QT_LIBS $LIBS"
   AC_LINK_IFELSE([AC_LANG_PROGRAM([[
-    #define QT_STATICPLUENC
+    #define QT_STATICPLUGIN
     #include <QtPlugin>
     $1]],
     [[return 0;]])],
     [AC_MSG_RESULT(yes); QT_LIBS="$2 $QT_LIBS"],
     [AC_MSG_RESULT(no); BITCOIN_QT_FAIL(Could not resolve: $2)])
-  LIBS="$CHECK_STATIC_PLUENCS_TEMP_LIBS"
+  LIBS="$CHECK_STATIC_PLUGINS_TEMP_LIBS"
 ])
 
 dnl Internal. Find paths necessary for linking qt static plugins
 dnl Inputs: bitcoin_qt_got_major_vers. 4 or 5.
 dnl Inputs: qt_plugin_path. optional.
 dnl Outputs: QT_LIBS is appended
-AC_DEFUN([_BITCOIN_QT_FIND_STATIC_PLUENCS],[
+AC_DEFUN([_BITCOIN_QT_FIND_STATIC_PLUGINS],[
   if test x$bitcoin_qt_got_major_vers = x5; then
       if test x$qt_plugin_path != x; then
         QT_LIBS="$QT_LIBS -L$qt_plugin_path/platforms"
