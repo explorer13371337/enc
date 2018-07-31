@@ -232,7 +232,7 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits, const Consensus::Params&
         return error("CheckProofOfWork(): nBits below minimum work");
 
 	if (hash.ToString() == "57134dc60f30e23b17990890034a034091774f00e269759852b5069076fe4536") {
-	LogPrintf("BINGO - %s\n", hash.ToString());
+	LogPrintf("Genesisblock Skipping CheckProofOfWork(): hash doesn't match nBits - %s\n", hash.ToString());
 	}
 	else {
 	//LogPrintf("NONBINGO - %s\n", hash.ToString());	
