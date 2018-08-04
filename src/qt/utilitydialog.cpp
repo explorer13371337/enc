@@ -164,7 +164,7 @@ Consequently, users who have backups disabled will also have PrivateSend disable
         ui->aboutLogo->setVisible(false);
     }
     // Theme dependent Gfx in About popup
-    QString helpMessageGfx = ":/images/" + GUIUtil::getThemeName() + "/about";
+    QString helpMessageGfx = ":/images/drkblue/about";
     QPixmap pixmap = QPixmap(helpMessageGfx);
     ui->aboutLogo->setPixmap(pixmap);
 }
