@@ -52,7 +52,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
  */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "ENC affordable turnkey masternode solutions.";
+    const char* pszTimestamp = "ENC masternode & mining solutions.";
     const CScript genesisOutputScript = CScript() << ParseHex("045f27617a4b711580cb540afdbe821fdfcce499cff3f57d42e4f6748d0c227f6c8a81dffb75511c927ae109ecb5ac950ce3aed18ababec21e2d89c04e5214a5d3") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
@@ -145,7 +145,7 @@ public:
         nDelayGetHeadersTime = 24 * 60 * 60;
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1532871140, 1259517, 0x1e0ffff0, 1, 20 * COIN);
+        genesis = CreateGenesisBlock(1536364372, 1259517, 0x1e0ffff0, 1, 20 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
 		
 		//LogPrintf("Display genesis thash so we can input it below %s\n", consensus.hashGenesisBlock.ToString().c_str());
@@ -189,7 +189,7 @@ public:
             boost::assign::map_list_of
                     (  0, consensus.hashGenesisBlock)
             ,
-            1532871140, // * UNIX timestamp of last checkpoint block
+            1536364372, // * UNIX timestamp of last checkpoint block
             0,    // * total number of transactions between genesis and last checkpoint
             //   (the tx=... number in the SetBestChain debug.log lines)
             500        // * estimated number of transactions per day after checkpoint
