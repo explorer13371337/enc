@@ -145,17 +145,19 @@ public:
         nDelayGetHeadersTime = 24 * 60 * 60;
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1536364372, 1259517, 0x1e0ffff0, 1, 20 * COIN);
+        genesis = CreateGenesisBlock(1536504161, 1259517, 0x1e0ffff0, 1, 20 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
 		
-		//LogPrintf("Display genesis thash so we can input it below %s\n", consensus.hashGenesisBlock.ToString().c_str());
-        //LogPrintf("Display tmerkleroot hash so we can input it below %s\n", genesis.hashMerkleRoot.ToString().c_str());
+		LogPrintf("Display genesis thash so we can input it below %s\n", consensus.hashGenesisBlock.ToString().c_str());
+        LogPrintf("Display tmerkleroot hash so we can input it below %s\n", genesis.hashMerkleRoot.ToString().c_str());
 		//00000bda8cbbdfaea37bdaef7b33c54eda376f901402988cb9b34dc14b9d3db5
-	
-		assert(consensus.hashGenesisBlock == uint256S("57134dc60f30e23b17990890034a034091774f00e269759852b5069076fe4536"));
-        assert(genesis.hashMerkleRoot == uint256S("d47242c8a262932e5917854027aa21ce2e6096855bfc1564973318ce786b4be3"));
+		//57134dc60f30e23b17990890034a034091774f00e269759852b5069076fe4536 old genesis block
+		//assert(consensus.hashGenesisBlock == uint256S("57134dc60f30e23b17990890034a034091774f00e269759852b5069076fe4536"));
+        //assert(genesis.hashMerkleRoot == uint256S("d47242c8a262932e5917854027aa21ce2e6096855bfc1564973318ce786b4be3"));
+		
+		
 
-        vSeeds.push_back(CDNSSeedData("easynodecoin.io", "seed1.easynodecoin.io"));
+        vSeeds.push_back(CDNSSeedData("seed1.easynodecoin.io", "seed1.easynodecoin.io"));
         vSeeds.push_back(CDNSSeedData("seed2.easynodecoin.io", "seed2.easynodecoin.io"));
         vSeeds.push_back(CDNSSeedData("seed3.easynodecoin.io", "seed3.easynodecoin.io"));
 
@@ -189,7 +191,7 @@ public:
             boost::assign::map_list_of
                     (  0, consensus.hashGenesisBlock)
             ,
-            1536364372, // * UNIX timestamp of last checkpoint block
+            1536504161, // * UNIX timestamp of last checkpoint block
             0,    // * total number of transactions between genesis and last checkpoint
             //   (the tx=... number in the SetBestChain debug.log lines)
             500        // * estimated number of transactions per day after checkpoint
@@ -273,11 +275,11 @@ public:
         consensus.hashGenesisBlock = genesis.GetHash();
 
 
-		//LogPrintf("Display genesis2 thash so we can input it below %s\n", consensus.hashGenesisBlock.ToString().c_str());
-        //LogPrintf("Display tmerkleroot2 hash so we can input it below %s\n", genesis.hashMerkleRoot.ToString().c_str());
+		LogPrintf("Display genesis2 thash so we can input it below %s\n", consensus.hashGenesisBlock.ToString().c_str());
+        LogPrintf("Display tmerkleroot2 hash so we can input it below %s\n", genesis.hashMerkleRoot.ToString().c_str());
 		
-        assert(consensus.hashGenesisBlock == uint256S("52b46cb65138a7ff37f271ff47a6a50c73905fd162e2700ae94b5406f0621a08"));
-        assert(genesis.hashMerkleRoot == uint256S("d47242c8a262932e5917854027aa21ce2e6096855bfc1564973318ce786b4be3"));
+        //assert(consensus.hashGenesisBlock == uint256S("52b46cb65138a7ff37f271ff47a6a50c73905fd162e2700ae94b5406f0621a08"));
+        //assert(genesis.hashMerkleRoot == uint256S("d47242c8a262932e5917854027aa21ce2e6096855bfc1564973318ce786b4be3"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
