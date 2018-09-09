@@ -393,11 +393,11 @@ public:
         genesis = CreateGenesisBlock(1532871140, 0, 0x207fffff, 1, 20 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
 
-		//LogPrintf("Display genesis3 thash so we can input it below %s\n", consensus.hashGenesisBlock.ToString().c_str());
-        //LogPrintf("Display tmerkleroot3 hash so we can input it below %s\n", genesis.hashMerkleRoot.ToString().c_str());
+		LogPrintf("Display genesis3 thash so we can input it below %s\n", consensus.hashGenesisBlock.ToString().c_str());
+        LogPrintf("Display tmerkleroot3 hash so we can input it below %s\n", genesis.hashMerkleRoot.ToString().c_str());
 		
-        assert(consensus.hashGenesisBlock == uint256S("b20b84323625f11ef6ed647fa291f5573e98878fffe230c6205b5c6d02ed37fa"));
-        assert(genesis.hashMerkleRoot == uint256S("d47242c8a262932e5917854027aa21ce2e6096855bfc1564973318ce786b4be3"));
+        //assert(consensus.hashGenesisBlock == uint256S("b20b84323625f11ef6ed647fa291f5573e98878fffe230c6205b5c6d02ed37fa"));
+        //assert(genesis.hashMerkleRoot == uint256S("d47242c8a262932e5917854027aa21ce2e6096855bfc1564973318ce786b4be3"));
 
         vFixedSeeds.clear(); //! Regtest mode doesn't have any fixed seeds.
         vSeeds.clear();  //! Regtest mode doesn't have any DNS seeds.

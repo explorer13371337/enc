@@ -1234,7 +1234,7 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
     CAmount nSubsidy = 10 * COIN;
 
     if (nPrevHeight == 0) {
-        nSubsidy = 777777 * COIN; //premine
+        nSubsidy = 750000 * COIN; //premine
     }
 
     // yearly decline of production by 50% per year, projected ~10M coins max by year 2040+.
@@ -1247,7 +1247,7 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
 
 CAmount GetMasternodePayment(int nHeight, CAmount blockValue)
 {
-    return blockValue / 2;
+    return blockValue / 10*60;
 }
 
 bool IsInitialBlockDownload()
