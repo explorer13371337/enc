@@ -91,7 +91,7 @@ public:
         consensus.nMajorityRejectBlockOutdated = 950;
         consensus.nMajorityWindow = 1000;
         consensus.BIP34Height = 0;
-        consensus.BIP34Hash = uint256S("57134dc60f30e23b17990890034a034091774f00e269759852b5069076fe4536"); //same as genesis hash
+        consensus.BIP34Hash = uint256S(""); //same as genesis hash
         consensus.powLimit = uint256S("00000fffff000000000000000000000000000000000000000000000000000000");
         consensus.nPowTargetTimespan = 24 * 60 * 60; // Easynodecoin: 1 day // used only for KGW and Bitcoin Diff
         consensus.nPowTargetSpacing = 2.5 * 60; // Easynodecoin: 2.5 minutes // soft change to nPowApr2018TargetSpacing after mPowDGWReconfigureApr2018Height
