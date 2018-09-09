@@ -343,7 +343,7 @@ public:
         consensus.nMajorityRejectBlockOutdated = 950;
         consensus.nMajorityWindow = 1000;
         consensus.BIP34Height = -1; // BIP34 has not necessarily activated on regtest
-        consensus.BIP34Hash = uint256("093e766ae9a85e6f8b0392bd8fe3e7eea308cfd958ebaec934835b699d57dba3");
+        consensus.BIP34Hash = uint256();
         consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 24 * 60 * 60; // Easynodecoin: 1 day // used only for KGW and Bitcoin Diff
         consensus.nPowTargetSpacing = 2 * 60; // Easynodecoin: 2 minutes
