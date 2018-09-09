@@ -152,14 +152,14 @@ public:
         LogPrintf("Display tmerkleroot hash so we can input it below %s\n", genesis.hashMerkleRoot.ToString().c_str());
 		//00000bda8cbbdfaea37bdaef7b33c54eda376f901402988cb9b34dc14b9d3db5
 		//57134dc60f30e23b17990890034a034091774f00e269759852b5069076fe4536 old genesis block
-		//assert(consensus.hashGenesisBlock == uint256S(""));
-        //assert(genesis.hashMerkleRoot == uint256S(""));
+		assert(consensus.hashGenesisBlock == uint256S(""));
+        assert(genesis.hashMerkleRoot == uint256S(""));
 		
 		
 
-        vSeeds.push_back(CDNSSeedData("seed1.easynodecoin.io", "seed1.easynodecoin.io"));
-        vSeeds.push_back(CDNSSeedData("seed2.easynodecoin.io", "seed2.easynodecoin.io"));
-        vSeeds.push_back(CDNSSeedData("seed3.easynodecoin.io", "seed3.easynodecoin.io"));
+        //vSeeds.push_back(CDNSSeedData("seed1.easynodecoin.io", "seed1.easynodecoin.io"));
+        //vSeeds.push_back(CDNSSeedData("seed2.easynodecoin.io", "seed2.easynodecoin.io"));
+        //vSeeds.push_back(CDNSSeedData("seed3.easynodecoin.io", "seed3.easynodecoin.io"));
 
         // Easynodecoin addresses start with 'G'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,102);
