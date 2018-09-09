@@ -91,7 +91,7 @@ public:
         consensus.nMajorityRejectBlockOutdated = 950;
         consensus.nMajorityWindow = 1000;
         consensus.BIP34Height = 0;
-        consensus.BIP34Hash = uint256S(""); //same as genesis hash
+        consensus.BIP34Hash = uint256S("645cb242f0f3aa2481116f168b70c8a2573b502f840b597e2767f7f0e1404d0d"); //same as genesis hash
         consensus.powLimit = uint256S("00000fffff000000000000000000000000000000000000000000000000000000");
         consensus.nPowTargetTimespan = 24 * 60 * 60; // Easynodecoin: 1 day // used only for KGW and Bitcoin Diff
         consensus.nPowTargetSpacing = 2.5 * 60; // Easynodecoin: 2.5 minutes // soft change to nPowApr2018TargetSpacing after mPowDGWReconfigureApr2018Height
@@ -148,18 +148,14 @@ public:
         genesis = CreateGenesisBlock(1536504161, 1259517, 0x1e0ffff0, 1, 20 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
 		
-		LogPrintf("Display genesis thash so we can input it below %s\n", consensus.hashGenesisBlock.ToString().c_str());
-        LogPrintf("Display tmerkleroot hash so we can input it below %s\n", genesis.hashMerkleRoot.ToString().c_str());
-		//00000bda8cbbdfaea37bdaef7b33c54eda376f901402988cb9b34dc14b9d3db5
-		//57134dc60f30e23b17990890034a034091774f00e269759852b5069076fe4536 old genesis block
-		//assert(consensus.hashGenesisBlock == uint256S(""));
-        //assert(genesis.hashMerkleRoot == uint256S(""));
+		assert(consensus.hashGenesisBlock == uint256S("645cb242f0f3aa2481116f168b70c8a2573b502f840b597e2767f7f0e1404d0d"));
+        assert(genesis.hashMerkleRoot == uint256S("eb5e3aa874813c2eef14654a4e2cbe105c88956bc0df95ce23e42545ce31f8cf"));
 		
 		
 
-        //vSeeds.push_back(CDNSSeedData("seed1.easynodecoin.io", "seed1.easynodecoin.io"));
-        //vSeeds.push_back(CDNSSeedData("seed2.easynodecoin.io", "seed2.easynodecoin.io"));
-        //vSeeds.push_back(CDNSSeedData("seed3.easynodecoin.io", "seed3.easynodecoin.io"));
+        vSeeds.push_back(CDNSSeedData("seed1.easynodecoin.io", "seed1.easynodecoin.io"));
+        vSeeds.push_back(CDNSSeedData("seed2.easynodecoin.io", "seed2.easynodecoin.io"));
+        vSeeds.push_back(CDNSSeedData("seed3.easynodecoin.io", "seed3.easynodecoin.io"));
 
         // Easynodecoin addresses start with 'G'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,102);
@@ -225,7 +221,7 @@ public:
         consensus.nMajorityRejectBlockOutdated = 75;
         consensus.nMajorityWindow = 100;
         consensus.BIP34Height = 0;
-        consensus.BIP34Hash = uint256S("52b46cb65138a7ff37f271ff47a6a50c73905fd162e2700ae94b5406f0621a08");
+        consensus.BIP34Hash = uint256S("21d500801dcd41e22303f16e9de7e09d36995dd365a108016c54a90819075047");
         consensus.powLimit = uint256S("00000fffff000000000000000000000000000000000000000000000000000000");
         consensus.nPowTargetTimespan = 24 * 60 * 60; // Easynodecoin: 1 day // used only for KGW and Bitcoin Diff
         consensus.nPowTargetSpacing = 2 * 60; // Easynodecoin: 2 minutes
@@ -274,12 +270,8 @@ public:
         genesis = CreateGenesisBlock(1532871140, 1105519, 0x1e0ffff0, 1, 20 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
 
-
-		LogPrintf("Display genesis2 thash so we can input it below %s\n", consensus.hashGenesisBlock.ToString().c_str());
-        LogPrintf("Display tmerkleroot2 hash so we can input it below %s\n", genesis.hashMerkleRoot.ToString().c_str());
-		
-        //assert(consensus.hashGenesisBlock == uint256S("52b46cb65138a7ff37f271ff47a6a50c73905fd162e2700ae94b5406f0621a08"));
-        //assert(genesis.hashMerkleRoot == uint256S("d47242c8a262932e5917854027aa21ce2e6096855bfc1564973318ce786b4be3"));
+        assert(consensus.hashGenesisBlock == uint256S("21d500801dcd41e22303f16e9de7e09d36995dd365a108016c54a90819075047"));
+        assert(genesis.hashMerkleRoot == uint256S("eb5e3aa874813c2eef14654a4e2cbe105c88956bc0df95ce23e42545ce31f8cf"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -351,7 +343,7 @@ public:
         consensus.nMajorityRejectBlockOutdated = 950;
         consensus.nMajorityWindow = 1000;
         consensus.BIP34Height = -1; // BIP34 has not necessarily activated on regtest
-        consensus.BIP34Hash = uint256();
+        consensus.BIP34Hash = uint256("093e766ae9a85e6f8b0392bd8fe3e7eea308cfd958ebaec934835b699d57dba3");
         consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 24 * 60 * 60; // Easynodecoin: 1 day // used only for KGW and Bitcoin Diff
         consensus.nPowTargetSpacing = 2 * 60; // Easynodecoin: 2 minutes
@@ -393,11 +385,8 @@ public:
         genesis = CreateGenesisBlock(1532871140, 0, 0x207fffff, 1, 20 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
 
-		LogPrintf("Display genesis3 thash so we can input it below %s\n", consensus.hashGenesisBlock.ToString().c_str());
-        LogPrintf("Display tmerkleroot3 hash so we can input it below %s\n", genesis.hashMerkleRoot.ToString().c_str());
-		
-        //assert(consensus.hashGenesisBlock == uint256S("b20b84323625f11ef6ed647fa291f5573e98878fffe230c6205b5c6d02ed37fa"));
-        //assert(genesis.hashMerkleRoot == uint256S("d47242c8a262932e5917854027aa21ce2e6096855bfc1564973318ce786b4be3"));
+        assert(consensus.hashGenesisBlock == uint256S("093e766ae9a85e6f8b0392bd8fe3e7eea308cfd958ebaec934835b699d57dba3"));
+        assert(genesis.hashMerkleRoot == uint256S("eb5e3aa874813c2eef14654a4e2cbe105c88956bc0df95ce23e42545ce31f8cf"));
 
         vFixedSeeds.clear(); //! Regtest mode doesn't have any fixed seeds.
         vSeeds.clear();  //! Regtest mode doesn't have any DNS seeds.
