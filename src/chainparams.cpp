@@ -152,8 +152,8 @@ public:
         LogPrintf("Display tmerkleroot hash so we can input it below %s\n", genesis.hashMerkleRoot.ToString().c_str());
 		//00000bda8cbbdfaea37bdaef7b33c54eda376f901402988cb9b34dc14b9d3db5
 		//57134dc60f30e23b17990890034a034091774f00e269759852b5069076fe4536 old genesis block
-		//assert(consensus.hashGenesisBlock == uint256S("57134dc60f30e23b17990890034a034091774f00e269759852b5069076fe4536"));
-        //assert(genesis.hashMerkleRoot == uint256S("d47242c8a262932e5917854027aa21ce2e6096855bfc1564973318ce786b4be3"));
+		assert(consensus.hashGenesisBlock == uint256S(""));
+        assert(genesis.hashMerkleRoot == uint256S(""));
 		
 		
 
