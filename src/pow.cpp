@@ -231,7 +231,7 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits, const Consensus::Params&
     if (fNegative || bnTarget == 0 || fOverflow || bnTarget > UintToArith256(params.powLimit))
         return error("CheckProofOfWork(): nBits below minimum work");
 
-	if (hash.ToString() == "57134dc60f30e23b17990890034a034091774f00e269759852b5069076fe4536") {
+	if (hash.ToString() == "645cb242f0f3aa2481116f168b70c8a2573b502f840b597e2767f7f0e1404d0d") {
 	LogPrintf("Genesisblock Skipping CheckProofOfWork(): hash doesn't match nBits - %s\n", hash.ToString());
 	}
 	else {
